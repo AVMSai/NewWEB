@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Dashboard • Jessica Taylor</title>
+  <meta name="description" content="Simplified single-page patient dashboard rendering Jessica Taylor's data with a blood pressure chart." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="brand">Tech.Care</div>
+    <nav class="nav">
+      <a class="nav-item active" href="#" aria-current="page">Dashboard</a>
+      <a class="nav-item" href="#" aria-disabled="true">Patients</a>
+      <a class="nav-item" href="#" aria-disabled="true">Schedule</a>
+      <a class="nav-item" href="#" aria-disabled="true">Messages</a>
+      <a class="nav-item" href="#" aria-disabled="true">Settings</a>
+    </nav>
+    <footer class="sidebar-footer">
+      <small>Front-End Skill Test</small>
+    </footer>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1 class="title">Patient Dashboard</h1>
+      <div class="spacer"></div>
+      <div class="user-chip" id="userChip" aria-live="polite">
+        <div class="avatar" id="patientAvatar" aria-hidden="true"></div>
+        <div class="user-meta">
+          <div class="user-name" id="patientName">Jessica Taylor</div>
+          <div class="user-sub" id="patientId">Patient</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <section class="card profile">
+        <h2 class="card-title">Profile</h2>
+        <dl class="profile-grid">
+          <div>
+            <dt>Gender</dt><dd id="patientGender">—</dd>
+          </div>
+          <div>
+            <dt>Age</dt><dd id="patientAge">—</dd>
+          </div>
+          <div>
+            <dt>Date of Birth</dt><dd id="patientDob">—</dd>
+          </div>
+          <div>
+            <dt>Phone</dt><dd id="patientPhone">—</dd>
+          </div>
+          <div>
+            <dt>Emergency Contact</dt><dd id="patientEmergency">—</dd>
+          </div>
+          <div>
+            <dt>Insurance</dt><dd id="patientInsurance">—</dd>
+          </div>
+          <div>
+            <dt>Blood Type</dt><dd id="patientBloodType">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card vitals">
+        <h2 class="card-title">Vitals (Latest)</h2>
+        <ul class="vitals-list" id="vitalsList" aria-live="polite">
+          <!-- populated by JS -->
+        </ul>
+      </section>
+
+      <section class="card chart">
+        <div class="card-title-row">
+          <h2 class="card-title">Blood Pressure by Year</h2>
+          <div class="legend">
+            <span class="dot systolic"></span><span>Systolic</span>
+            <span class="dot diastolic"></span><span>Diastolic</span>
+          </div>
+        </div>
+        <canvas id="bpChart" aria-label="Blood pressure line chart" role="img"></canvas>
+      </section>
+
+      <section class="card diagnosis">
+        <h2 class="card-title">Diagnosis History</h2>
+        <ol id="diagnosisList" class="diag-list">
+          <!-- populated by JS -->
+        </ol>
+      </section>
+    </section>
+
+    <section class="card note">
+      <p class="muted">
+        Note: Per test instructions, this page displays information only for <strong>Jessica Taylor</strong>.
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
